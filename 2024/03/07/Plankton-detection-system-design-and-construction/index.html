@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Plankton detection system design and construction | 3D Digital Holographic Microscopy Water Quality Detection System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="3.1 Overall light path system designThe diagram below illustrates the light path of the digital microscope, starting with an LED that provides a stable source of light. This light illuminates the spec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Plankton detection system design and construction">
+<meta property="og:url" content="http://example.com/2024/03/07/Plankton-detection-system-design-and-construction/index.html">
+<meta property="og:site_name" content="3D Digital Holographic Microscopy Water Quality Detection System">
+<meta property="og:description" content="3.1 Overall light path system designThe diagram below illustrates the light path of the digital microscope, starting with an LED that provides a stable source of light. This light illuminates the spec">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2024/03/07/Plankton-detection-system-design-and-construction/1.png">
+<meta property="og:image" content="http://example.com/2024/03/07/Plankton-detection-system-design-and-construction/2.png">
+<meta property="article:published_time" content="2024-03-08T03:07:04.000Z">
+<meta property="article:modified_time" content="2024-03-09T04:17:37.092Z">
+<meta property="article:author" content="Taven Chen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/03/07/Plankton-detection-system-design-and-construction/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="3D Digital Holographic Microscopy Water Quality Detection System" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.1.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">3D Digital Holographic Microscopy Water Quality Detection System</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Plankton-detection-system-design-and-construction" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/07/Plankton-detection-system-design-and-construction/" class="article-date">
+  <time class="dt-published" datetime="2024-03-08T03:07:04.000Z" itemprop="datePublished">2024-03-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Plankton detection system design and construction
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="3-1-Overall-light-path-system-design"><a href="#3-1-Overall-light-path-system-design" class="headerlink" title="3.1 Overall light path system design"></a>3.1 Overall light path system design</h2><p>The diagram below illustrates the light path of the digital microscope, starting with an LED that provides a stable source of light. This light illuminates the specimen mounted on a slide, and the interaction between the light and the sample is captured by the CMOS. </p>
+<p><img src="/2024/03/07/Plankton-detection-system-design-and-construction/1.png" alt="Figure 5   Schematic diagram of system optical path structure"></p>
+<p>In order to have multi-wavelength light, there are several ways to complete this system. One is to let the LED become multi-wavelength so that it can emit different light on a different wavelength. Another is to add a multiple-filter control system, including a plate holding filter of different wavelengths and a servo. By turning the plate so that light passes through different filters, the different wavelengths of light can be achieved.</p>
+<h2 id="3-2-Hardware-and-circuit-design"><a href="#3-2-Hardware-and-circuit-design" class="headerlink" title="3.2 Hardware and circuit design"></a>3.2 Hardware and circuit design</h2><p><img src="/2024/03/07/Plankton-detection-system-design-and-construction/2.png" alt="Figure 6   Schematic diagram of system hardware path structure"></p>
+<p>The whole system contains a total of six components without the Micro Control Unit (MCU), mainly including the outer shell, slide holder, CMOS, servo with filter, and LED. The adjustable holder (2) is an instrument that can change the height of the plate precisely. To switch between different filters, a servo is used to rotate the plate to choose the filter. The LED light shell is designed to hold one white LED with an aluminum base. To connect the system with the MCU, the positive and negative wires of the servo and the positive wire of the LED are directly connected to the 5V and GND ports in the MCU. The signal wire of the servo is connected to the analog output port of the MCU, and the negative wire of the LED is connected to the digital output port of the MCU. By programming the MCU to control the related output in different ports, the LED switch and the position of the servo can be controlled. The output wire of the CMOS can be directly connected to the computer to record the picture captured, or if the MCU is Raspberry Pi or similar hardware that has USB-A and wireless communication equipment, the CMOS could also directly connect to the MCU and wirelessly read data on a computer for later analysis.</p>
+<h2 id="3-3-3D-printing-and-prototype-building"><a href="#3-3-3D-printing-and-prototype-building" class="headerlink" title="3.3 3D printing and prototype building"></a>3.3 3D printing and prototype building</h2><p>For the outer shell, slide holder, and filter plate, the 3D printing material is photosensitive resin using the SLA process. An SG90 servo is used in this system because of its small size. A 5050 LED is used since it can separately control all three RGB values, and the distance between three small LEDs is in an acceptable range. A narrowband filter is used since a limited wavelength is required for the phase retrieving process to be accurate. The half-band width of the three filters is 20nm, and the wavelength for the three filters is 650nm, 532nm, and 450nm. The CMOS type is Basler dart daA2500-14um (No-Mount), with resolution (H x V) 2592 px × 1944 px, pixel Size (H x V) 2.2 μm × 2.2 μm, frame rate 14 fps, and mono color.<br>In order to assemble the system, the slide holder should be inserted into the supporting component in the middle bottom hole and fixed with glue. The CMOS and its supporting components should be fixed with a screw and nut. The wire should be appropriately carried out by drilling holes in the supporting component. After making sure the output port of the CMOS is exposed and gluing the front board of the supporting component on, assemble the filter plate with all three filters, and then attach the filter plate to the servo. Then, screw the servo and its supporting component to the outer shell, and make sure all wires are correctly connected as stated in the “Hardware and circuit design” section. Finally, assemble the outer shell with the supporting component, and do the first test of the system.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/03/07/Plankton-detection-system-design-and-construction/" data-id="cltjna3dx00072c7kgxdlaf2m" data-title="Plankton detection system design and construction" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/03/08/Basic-Principles/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Basic Principles
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/03/06/Experiment/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Experiment</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/03/11/Project-Introduction/">Project Introduction</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/10/Abstract/">Abstract</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/09/Introduction/">Introduction</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/08/Basic-Principles/">Basic Principles</a>
+          </li>
+        
+          <li>
+            <a href="/2024/03/07/Plankton-detection-system-design-and-construction/">Plankton detection system design and construction</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 Taven Chen<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
